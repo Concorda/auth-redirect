@@ -14,7 +14,7 @@ module.exports = function ( options ) {
     var redirect = false
     var ct = (req.headers['content-type']||'').split(';')[0]
 
-    if( options.redirect.always ) {
+    if( options.always ) {
       redirect = true
     }
     else if( !_.isUndefined(req.query.redirect) ) {
@@ -30,9 +30,11 @@ module.exports = function ( options ) {
 
     if( redirect ) {
       redirect = {
-        win:  _.isString(req.query.win) ? req.query.win : (options.redirect[kind]? options.redirect[kind].win: undefined) ,
-        fail: _.isString(req.query.fail) ? req.query.fail : (options.redirect[kind]? options.redirect[kind].fail: undefined)
+        win:  _.isString(req.query.win) ? req.query.win : (options[kind]? options[kind].win: undefined) ,
+        fail: _.isString(req.query.fail) ? req.query.fail : (options[kind]? options[kind].fail: undefined)
       }
+    }else{
+      redirect = {}
     }
 
     cb(null, redirect)
