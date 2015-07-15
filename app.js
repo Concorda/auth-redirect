@@ -11,30 +11,29 @@ module.exports = function ( options ) {
     var res = args.res
     var kind = args.kind
 
-    var redirect = false
+    var shouldRedirect = false
     var ct = (req.headers['content-type']||'').split(';')[0]
 
     if( options.always ) {
-      redirect = true
+      shouldRedirect = true
     }
     else if( !_.isUndefined(req.query.redirect) ) {
-      redirect = S(req.query.redirect).toBoolean()
+      shouldRedirect = S(req.query.redirect).toBoolean()
     }
     else if( 'application/x-www-form-urlencoded' == ct || 'multipart/form-data' == ct ) {
-      redirect = true
+      shouldRedirect = true
     }
     else if( 'application/json' == ct ) {
-      redirect = false
+      shouldRedirect = false
     }
-    else redirect = true;
+    else shouldRedirect = true;
 
-    if( redirect ) {
-      redirect = {
+    var redirect
+    if( shouldRedirect ) {
+      shouldRedirect = {
         win:  _.isString(req.query.win) ? req.query.win : (options[kind]? options[kind].win: undefined) ,
         fail: _.isString(req.query.fail) ? req.query.fail : (options[kind]? options[kind].fail: undefined)
       }
-    }else{
-      redirect = {}
     }
 
     cb(null, redirect)
