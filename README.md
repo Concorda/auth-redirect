@@ -1,7 +1,7 @@
-seneca-auth-token-cookie
+seneca-auth-redirect
 ========================
 
-Seneca plugin for storing auth token as cookie
+Seneca plugin for auth redirect
 
 ## Setup
 
