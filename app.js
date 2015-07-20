@@ -30,7 +30,7 @@ module.exports = function ( options ) {
 
     var redirect
     if( shouldRedirect ) {
-      shouldRedirect = {
+      redirect = {
         win:  _.isString(req.query.win) ? req.query.win : (options[kind]? options[kind].win: undefined) ,
         fail: _.isString(req.query.fail) ? req.query.fail : (options[kind]? options[kind].fail: undefined)
       }
