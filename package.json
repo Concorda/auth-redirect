@@ -1,20 +1,35 @@
 {
   "name": "seneca-auth-redirect",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Seneca plugin for auth redirect",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "seneca",
+    "auth",
+    "plugin",
+    "redirect"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/mirceaalexandru/seneca-auth-redirect"
   },
+  "files": [
+    "LICENSE.txt",
+    "README.md",
+    "app.js"
+  ],
   "author": {
     "name": "Mircea Alexandru",
     "email":"mircea.alexandru@gmail.com",
     "url" : "https://github.com/mirceaalexandru"
   },
+  "bugs": {
+    "url": "https://github.com/mirceaalexandru/seneca-auth-redirect"
+  },
+  "homepage": "https://github.com/mirceaalexandru/seneca-auth-redirect",
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
