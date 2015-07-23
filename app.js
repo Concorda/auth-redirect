@@ -7,8 +7,7 @@ module.exports = function ( options ) {
   var plugin = 'seneca-auth-redirect'
 
   function redirect(args, cb){
-    var req = args.req
-    var res = args.res
+    var req = this.fixedargs.req$
     var kind = args.kind
 
     var shouldRedirect = false
@@ -26,7 +25,7 @@ module.exports = function ( options ) {
     else if( 'application/json' == ct ) {
       shouldRedirect = false
     }
-    else shouldRedirect = true;
+    else shouldRedirect = false;
 
     var redirect
     if( shouldRedirect ) {
