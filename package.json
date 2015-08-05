@@ -23,8 +23,8 @@
   ],
   "author": {
     "name": "Mircea Alexandru",
-    "email":"mircea.alexandru@gmail.com",
-    "url" : "https://github.com/mirceaalexandru"
+    "email": "mircea.alexandru@gmail.com",
+    "url": "https://github.com/mirceaalexandru"
   },
   "bugs": {
     "url": "https://github.com/mirceaalexandru/seneca-auth-redirect"
@@ -33,6 +33,7 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "lodash": "^3.10.0"
+    "lodash": "^3.10.0",
+    "string": "^3.3.0"
   }
 }

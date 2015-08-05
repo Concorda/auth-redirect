@@ -1,10 +1,12 @@
 "use strict";
 
 var _ = require('lodash')
+var S = require('string')
 
-module.exports = function ( options ) {
+module.exports = function ( opt ) {
   var seneca = this
   var plugin = 'seneca-auth-redirect'
+  var options = opt || {}
 
   function redirect(args, cb){
     var req = this.fixedargs.req$
@@ -16,12 +18,15 @@ module.exports = function ( options ) {
     if( options.always ) {
       shouldRedirect = true
     }
+    else if( options[kind] && options[kind].always ) {
+      shouldRedirect = true
+    }
     else if( !_.isUndefined(req.query.redirect) ) {
       shouldRedirect = S(req.query.redirect).toBoolean()
     }
-    else if( 'application/x-www-form-urlencoded' == ct || 'multipart/form-data' == ct ) {
-      shouldRedirect = true
-    }
+//    else if( 'application/x-www-form-urlencoded' == ct || 'multipart/form-data' == ct ) {
+//      shouldRedirect = true
+//    }
     else if( 'application/json' == ct ) {
       shouldRedirect = false
     }
