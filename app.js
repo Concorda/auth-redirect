@@ -4,7 +4,8 @@
 var _ = require( 'lodash' )
 var S = require( 'string' )
 
-module.exports = function ( seneca, opt ) {
+module.exports = function ( opt ) {
+  var seneca = seneca
 
   var options = opt || {}
 
