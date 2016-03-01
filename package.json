@@ -1,6 +1,6 @@
 {
   "name": "auth-redirect",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Seneca internal module for auth redirect",
   "main": "app.js",
   "scripts": {
